@@ -1,9 +1,8 @@
-package Actions;
+package AppManager;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,35 +13,37 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ActionsForTests {
+public class HelperBase {
 
-    private WebDriverRunner wd ;
+    WebDriver wd;
 
+    public HelperBase(WebDriver wd){
+        this.wd=wd;
 
-    public WebDriver web(){
-        return WebDriverRunner.getWebDriver();
     }
 
 
-
-
-
     public void click(By by){
-        web().findElement(by).click();
+        wd.findElement(by).click();
+    }
+
+    public String getUrl(){
+        return wd.getCurrentUrl();
     }
 
 
   public void input(By by, String text){
 
-      web().findElement(by).click();
-      web().findElement(by).clear();
-      web().findElement(by).sendKeys(text);
+      wd.findElement(by).click();
+      wd.findElement(by).clear();
+      wd.findElement(by).sendKeys(text);
   }
 
   public void assertTest(By by,String etalon){
-       String text= web().findElement(by).getText();
+       String text= wd.findElement(by).getText();
        assertEquals(text,etalon);
 
   }
@@ -51,9 +52,13 @@ public class ActionsForTests {
       return $$(by).texts();
   }
 
-    public void clickCollection(By by){
+    public void clickCollection(By by,String text) {
 
-         $$(by).find(Condition.text("")).click();
+        $$(by).find(Condition.text(text)).click();
+    }
+
+         public void assertCollection(List<String> collection,String etalon){
+        assertThat(collection,hasItem(etalon));
 
     }
     public void checkListElementsContainsTextInComboboxStatus() {
@@ -75,9 +80,16 @@ public class ActionsForTests {
     }
 
 
-    public static void sleepingTime(int time){
-        Selenide.sleep(time*1000);
+    public static void sleepingTime(int sec){
+        Selenide.sleep(sec*1000);
     }
-  }
 
+    public void changeWindow() {
+        ArrayList<String> tabs = new ArrayList<String>(wd.getWindowHandles());
+        wd.switchTo().window(tabs.get(1));
+
+
+
+    }
+}
 
