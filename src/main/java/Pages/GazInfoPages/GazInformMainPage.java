@@ -1,7 +1,6 @@
 package Pages.GazInfoPages;
 
 import AppManager.HelperBase;
-import Pages.YandexPages.YandexSearchPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,9 +14,9 @@ public class GazInformMainPage extends HelperBase {
     }
 
     public GazInformMainPage clickButtonProduct() {
-        By xpath = By.xpath("//*[@id=\"js-btn3\"]");
-        assertTest(xpath, "Продукты");
-        click(xpath);
+        By id = By.id("js-btn3");
+        assertTest(id, "Продукты");
+        click(id);
         return this;
     }
 
@@ -27,8 +26,8 @@ public class GazInformMainPage extends HelperBase {
     }
 
     public GazInformMainPage clickOnAnkeyAnkeyIDM() {
-        sleepingTime(1);
         By xpath = By.xpath("//*[@id=\"div431\"]/a");
+        sleepingTime(2);
         assertTest(xpath, "Ankey IDM");
         click(xpath);
         return this;
@@ -40,10 +39,10 @@ public class GazInformMainPage extends HelperBase {
         return this;
     }
 
-        public GazInformMainPage changeWindowInBrowser(){
-            changeWindow();
-            return this;
-        }
-
+    public GazInformMainPage changeWindowInBrowser() {
+        changeWindow();
+        return this;
     }
+
+}
 

@@ -11,17 +11,17 @@ public class YandexResultPage extends HelperBase {
         super(wd);
     }
 
-    public YandexResultPage assertAndClickGazInfo(){
-        sleepingTime(2);
-        By by=By.xpath("//*[@id=\"search-result\"]/li[1]//a");
-        String url="gaz-is.ru";
-        List<String> col=searchCollection(by);
-        assertCollection(col,"Газинформсервис - информационная безопасность");
-        assertCollection(col,url);
-        clickCollection(by,url);
+    public YandexResultPage assertAndClickGazInfo() {
+
+        By by = By.xpath("//*[@id=\"search-result\"]/li[1]//a");
+        visibleElement(by);
+        String url = "gaz-is.ru";
+        List<String> col = searchCollection(by);
+        assertCollection(col, "Газинформсервис - информационная безопасность");
+        assertCollection(col, url);
+        clickCollection(by, url);
         return this;
     }
-
 
 
 }

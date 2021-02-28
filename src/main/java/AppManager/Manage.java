@@ -8,9 +8,6 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Selenide.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertEquals;
 
 public class Manage {
 
@@ -22,18 +19,20 @@ public class Manage {
     GazInformPageAnkeyIDM gazInformPageAnkeyIDM;
 
 
-
-
-
     public void launch() {
         open("https://yandex.ru/");
-         w= WebDriverRunner.getWebDriver();
-        yandexSearchPage=  new YandexSearchPage(w);
-        yandexResultPage= new YandexResultPage(w);
-       gazInformMainPage= new GazInformMainPage(w);
-        gazInformPageAnkeyIDM=new GazInformPageAnkeyIDM(w);
+        w = WebDriverRunner.getWebDriver();
+        w.manage().window().maximize();
+        yandexSearchPage = new YandexSearchPage(w);
+        yandexResultPage = new YandexResultPage(w);
+        gazInformMainPage = new GazInformMainPage(w);
+        gazInformPageAnkeyIDM = new GazInformPageAnkeyIDM(w);
 
     }
+    public void stop(){
+        WebDriverRunner.getWebDriver().quit();
+    }
+
 
     public YandexSearchPage getYandexSearchPage() {
 
@@ -41,6 +40,7 @@ public class Manage {
     }
 
     public YandexResultPage getYandexResultPage() {
+
         return yandexResultPage;
     }
 
@@ -48,6 +48,7 @@ public class Manage {
 
         return gazInformMainPage;
     }
+
     public GazInformPageAnkeyIDM getGazInformPageAnkeyIDM() {
 
         return gazInformPageAnkeyIDM;
@@ -55,7 +56,7 @@ public class Manage {
 
 
 
-    }
+}
 
 
 

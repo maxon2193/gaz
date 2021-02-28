@@ -14,17 +14,17 @@ public class GazInformPageAnkeyIDM extends HelperBase {
         super(wd);
     }
 
-    public GazInformPageAnkeyIDM checkThisPageAboutAnkeyIDM(){
-        sleepingTime(2);
-        assertTest(By.xpath("(//*[contains(text(),'Ankey IDM')])[3]"),"Ankey IDM");//сранение заголовка
-        By by=By.xpath("//*[contains(text(),'Ankey IDM')]");
-        String text1="Решение - система Ankey IDM, которая обладает следующими функциональными возможностями:";
-        String text2="Выгоды при использовании Ankey IDM";
-        String text3="Основные функции Ankey IDM";
-        List<String> col=searchCollection(by);
-        assertCollection(col,text1);
-        assertCollection(col,text2);
-        clickCollection(by,text3);
+    public GazInformPageAnkeyIDM checkThisPageAboutAnkeyIDM() {
+        sleepingTime(1);
+        assertTest(By.xpath("(//*[contains(text(),'Ankey IDM')])[3]"), "Ankey IDM");//сранение заголовка
+        By by = By.xpath("//*[contains(text(),'Ankey IDM')]");
+        String text1 = "Решение - система Ankey IDM, которая обладает следующими функциональными возможностями:";
+        String text2 = "Выгоды при использовании Ankey IDM";
+        String text3 = "Основные функции Ankey IDM";
+        List<String> col = searchCollection(by);
+        assertCollection(col, text1);
+        assertCollection(col, text2);
+        clickCollection(by, text3);
         return this;
     }
 
@@ -33,7 +33,6 @@ public class GazInformPageAnkeyIDM extends HelperBase {
         assertEquals(url, "https://www.gaz-is.ru/produkty/upravlenie-ib/ankey-idm.html");
         return this;
     }
-
 
 
 }
