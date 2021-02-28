@@ -34,5 +34,4 @@ public class GazInformPageAnkeyIDM extends HelperBase {
         return this;
     }
 
-
 }

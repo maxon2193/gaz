@@ -8,7 +8,6 @@ import static org.junit.Assert.assertEquals;
 
 public class YandexSearchPage extends HelperBase {
 
-
     public YandexSearchPage(WebDriver wd) {
         super(wd);
     }

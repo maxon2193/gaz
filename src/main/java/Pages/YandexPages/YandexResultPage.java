@@ -7,12 +7,12 @@ import org.openqa.selenium.WebDriver;
 import java.util.List;
 
 public class YandexResultPage extends HelperBase {
+
     public YandexResultPage(WebDriver wd) {
         super(wd);
     }
 
-    public YandexResultPage assertAndClickGazInfo() {
-
+    public YandexResultPage checkAndClickGazInfo() {
         By by = By.xpath("//*[@id=\"search-result\"]/li[1]//a");
         visibleElement(by);
         String url = "gaz-is.ru";
@@ -22,6 +22,5 @@ public class YandexResultPage extends HelperBase {
         clickCollection(by, url);
         return this;
     }
-
 
 }

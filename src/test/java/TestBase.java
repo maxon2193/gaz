@@ -2,7 +2,6 @@ import AppManager.Manage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
 
@@ -16,7 +15,6 @@ public class TestBase {
     @AfterTest
     public void stop() {
         mg.stop();
-
     }
 
 

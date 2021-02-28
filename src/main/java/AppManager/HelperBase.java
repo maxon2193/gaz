@@ -1,7 +1,6 @@
 package AppManager;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,9 +21,7 @@ public class HelperBase {
 
     public HelperBase(WebDriver wd) {
         this.wd = wd;
-
     }
-
 
     public void click(By by) {
         wd.findElement(by).click();
@@ -34,9 +31,7 @@ public class HelperBase {
         return wd.getCurrentUrl();
     }
 
-
     public void input(By by, String text) {
-
         wd.findElement(by).click();
         wd.findElement(by).clear();
         wd.findElement(by).sendKeys(text);
@@ -45,7 +40,6 @@ public class HelperBase {
     public void assertTest(By by, String etalon) {
         String text = wd.findElement(by).getText();
         assertEquals(text, etalon);
-
     }
 
     public void visibleElement(By by) {
@@ -53,12 +47,10 @@ public class HelperBase {
     }
 
     public List<String> searchCollection(By by) {
-
         return $$(by).texts();
     }
 
     public void clickCollection(By by, String text) {
-
         $$(by).find(Condition.text(text)).click();
     }
 
@@ -73,8 +65,7 @@ public class HelperBase {
     public void changeWindow() {
         ArrayList<String> tabs = new ArrayList<String>(wd.getWindowHandles());
         wd.switchTo().window(tabs.get(1));
-
-
     }
+
 }
 

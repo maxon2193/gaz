@@ -1,17 +1,16 @@
-import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
 
 public class TestRun extends TestBase {
 
 
     @Test
-    public void goToGazInfo() {
+    public void runTest() {
         mg.getYandexSearchPage().
                 checkUrl().
                 inputYandexSearch("Газинформсервис").
                 clickForSearchYandex();
         mg.getYandexResultPage().
-                assertAndClickGazInfo();
+                checkAndClickGazInfo();
         mg.getGazInformMainPage().
                 changeWindowInBrowser().
                 checkUrl().
@@ -21,7 +20,5 @@ public class TestRun extends TestBase {
         mg.getGazInformPageAnkeyIDM().
                 checkUrl().
                 checkThisPageAboutAnkeyIDM();
-
-
     }
 }

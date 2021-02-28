@@ -8,7 +8,6 @@ import static org.junit.Assert.assertEquals;
 
 public class GazInformMainPage extends HelperBase {
 
-
     public GazInformMainPage(WebDriver wd) {
         super(wd);
     }
