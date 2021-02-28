@@ -20,6 +20,7 @@ public class Manage {
 
 
     public void launch() {
+        //-Dbrowser=chrome -Dtestng.dtd.http=true
         open("https://yandex.ru/");
         w = WebDriverRunner.getWebDriver();
         w.manage().window().maximize();
